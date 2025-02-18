@@ -1,0 +1,28 @@
+body{
+    background-color: #2DACD7;
+    display: flex;
+    justify-content: center;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.container{
+
+    display: flex;
+    flex-direction: column
+}
+
+.container h1{
+    margin-top: 100px;
+    font-size: xxx-large;
+    color: white;
+}
+
+.container p{
+    align-self: center;
+    font-size: xx-large
+}
+
+.container strong{
+    color: #F6D3A1
+}
+
