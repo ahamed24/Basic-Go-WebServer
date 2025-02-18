@@ -1,6 +1,12 @@
 # Basic-Go-WebServer
-This is a single routed web server written in go, which on visiting [https://basic-go-webserver.onrender.com/] will increment the counter and display the number of times the website has been visited.
-This code locks the go rountines for concurrency safety, blocking the threads spawned by multiple requests at the same time from fetching the counter value avoiding uncertainity and releases it sequentially.
-Incrementing the counter, it writes the value onto a text file (which i thought would be solution for persistent storage) and this idea turn of writing it onto a text file has become a jk as however when render(deployed cloud) restarts the server the text file is lost and it fetches the text file from the github repo which contains the value of counter when the code was pushed. 
-So it has become meaningless as it is the same as storing the value in the heap.
-however im recording this.
+This is a single routed web-server written in go. When you visit [https://basic-go-webserver.onrender.com/] will increment the counter and display the number of times the website has been visited.
+
+## Concurrency Safety:
+To ensure safe concurrent access. This blocks multiple threads spawned by simeltaneuos requests from accessing and modifying the counter, ensuring a sequential access to the counter.
+
+## Issue With Persistent Storage:
+Initially, i tried writing the value of a counter into a file thinking the state would be not be lost. However, this approach has turned out to a joke :sweat_smile:. When the render restarts the server, the text file is lost and fetches the code from this github repo, which contains the counter value when the code was last pushed. 
+
+Again this is same as storing it in the memory(heap).
+
+Learnt file handling and the ues-case of sync.Mutex.
