@@ -58,7 +58,11 @@ func main() {
 	counter := &CounterHandler{}
 	counter.loadCounter()
 
-	http.Handle("/counter", counter)
+	http.Handle("/", counter)
+
+	http.HandleFunc("/favicon.ico", func(w http.ResponseWriter, r *http.Request) {
+		w.WriteHeader(http.StatusNoContent)
+	})
 
 	http.Handle("/css/", http.StripPrefix("/css/", http.FileServer(http.Dir("static/css"))))
 
